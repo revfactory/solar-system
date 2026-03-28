@@ -1,0 +1,445 @@
+{
+  "mercury": {
+    "name": "수성",
+    "nameEn": "Mercury",
+    "orbital": {
+      "a": 0.38709927, "a_rate": 0.00000037,
+      "e": 0.20563593, "e_rate": 0.00001906,
+      "I": 7.00497902, "I_rate": -0.00594749,
+      "L": 252.25032350, "L_rate": 149472.67411175,
+      "omega_bar": 77.45779628, "omega_bar_rate": 0.16047689,
+      "Omega": 48.33076593, "Omega_rate": -0.12534081,
+      "period_days": 87.969
+    },
+    "physical": {
+      "equatorial_radius_km": 2440.53,
+      "mean_radius_km": 2439.4,
+      "mass_1e24_kg": 0.3301,
+      "bulk_density_g_cm3": 5.4289,
+      "geometric_albedo": 0.106,
+      "GM_km3_s2": 22031.868551
+    },
+    "rotation": {
+      "period_hours": 1407.6,
+      "axial_tilt_deg": 0.034,
+      "retrograde": false,
+      "north_pole": { "alpha0": 281.0097, "delta0": 61.4143 }
+    },
+    "visual": {
+      "color": "#8C7E6E"
+    },
+    "atmosphere": null,
+    "rings": null
+  },
+  "venus": {
+    "name": "금성",
+    "nameEn": "Venus",
+    "orbital": {
+      "a": 0.72333566, "a_rate": 0.00000390,
+      "e": 0.00677672, "e_rate": -0.00004107,
+      "I": 3.39467605, "I_rate": -0.00078890,
+      "L": 181.97909950, "L_rate": 58517.81538729,
+      "omega_bar": 131.60246718, "omega_bar_rate": 0.00268329,
+      "Omega": 76.67984255, "Omega_rate": -0.27769418,
+      "period_days": 224.701
+    },
+    "physical": {
+      "equatorial_radius_km": 6051.8,
+      "mean_radius_km": 6051.8,
+      "mass_1e24_kg": 4.8673,
+      "bulk_density_g_cm3": 5.243,
+      "geometric_albedo": 0.65,
+      "GM_km3_s2": 324858.592000
+    },
+    "rotation": {
+      "period_hours": 5832.6,
+      "axial_tilt_deg": 177.36,
+      "retrograde": true,
+      "north_pole": { "alpha0": 272.76, "delta0": 67.16 }
+    },
+    "visual": {
+      "color": "#E8CDA0"
+    },
+    "atmosphere": {
+      "hasAtmosphere": true,
+      "scaleHeight_km": 15.9,
+      "color": "#E8CDA0"
+    },
+    "rings": null
+  },
+  "earth": {
+    "name": "지구",
+    "nameEn": "Earth",
+    "orbital": {
+      "a": 1.00000261, "a_rate": 0.00000562,
+      "e": 0.01671123, "e_rate": -0.00004392,
+      "I": -0.00001531, "I_rate": -0.01294668,
+      "L": 100.46457166, "L_rate": 35999.37244981,
+      "omega_bar": 102.93768193, "omega_bar_rate": 0.32327364,
+      "Omega": 0.0, "Omega_rate": 0.0,
+      "period_days": 365.256
+    },
+    "physical": {
+      "equatorial_radius_km": 6378.14,
+      "mean_radius_km": 6371.01,
+      "mass_1e24_kg": 5.9722,
+      "bulk_density_g_cm3": 5.5134,
+      "geometric_albedo": 0.367,
+      "GM_km3_s2": 398600.435507
+    },
+    "rotation": {
+      "period_hours": 23.9345,
+      "axial_tilt_deg": 23.4393,
+      "retrograde": false,
+      "north_pole": { "alpha0": 0.00, "delta0": 90.00 }
+    },
+    "visual": {
+      "color": "#4B7BE5"
+    },
+    "atmosphere": {
+      "hasAtmosphere": true,
+      "scaleHeight_km": 8.5,
+      "color": "#6B93D6"
+    },
+    "rings": null,
+    "satellites": {
+      "moon": {
+        "name": "달",
+        "semi_major_axis_km": 384400,
+        "eccentricity": 0.0554,
+        "inclination_deg": 5.16,
+        "orbital_period_days": 27.322,
+        "radius_km": 1737.4,
+        "GM_km3_s2": 4902.800
+      }
+    }
+  },
+  "mars": {
+    "name": "화성",
+    "nameEn": "Mars",
+    "orbital": {
+      "a": 1.52371034, "a_rate": 0.00001847,
+      "e": 0.09339410, "e_rate": 0.00007882,
+      "I": 1.84969142, "I_rate": -0.00813131,
+      "L": -4.55343205, "L_rate": 19140.30268499,
+      "omega_bar": -23.94362959, "omega_bar_rate": 0.44441088,
+      "Omega": 49.55953891, "Omega_rate": -0.29257343,
+      "period_days": 686.980
+    },
+    "physical": {
+      "equatorial_radius_km": 3396.19,
+      "mean_radius_km": 3389.50,
+      "mass_1e24_kg": 0.6417,
+      "bulk_density_g_cm3": 3.9340,
+      "geometric_albedo": 0.150,
+      "GM_km3_s2": 42828.375816
+    },
+    "rotation": {
+      "period_hours": 24.6229,
+      "axial_tilt_deg": 25.19,
+      "retrograde": false,
+      "north_pole": { "alpha0": 317.68143, "delta0": 52.88650 }
+    },
+    "visual": {
+      "color": "#C1440E"
+    },
+    "atmosphere": {
+      "hasAtmosphere": true,
+      "scaleHeight_km": 11.1,
+      "color": "#C1440E"
+    },
+    "rings": null,
+    "satellites": {
+      "phobos": {
+        "name": "포보스",
+        "semi_major_axis_km": 9375,
+        "eccentricity": 0.015,
+        "inclination_deg": 1.1,
+        "orbital_period_days": 0.3187,
+        "radius_km": 11.08,
+        "GM_km3_s2": 0.0007087
+      },
+      "deimos": {
+        "name": "데이모스",
+        "semi_major_axis_km": 23457,
+        "eccentricity": 0.000,
+        "inclination_deg": 1.8,
+        "orbital_period_days": 1.2625,
+        "radius_km": 6.2,
+        "GM_km3_s2": 0.0000962
+      }
+    }
+  },
+  "jupiter": {
+    "name": "목성",
+    "nameEn": "Jupiter",
+    "orbital": {
+      "a": 5.20288700, "a_rate": -0.00011607,
+      "e": 0.04838624, "e_rate": -0.00013253,
+      "I": 1.30439695, "I_rate": -0.00183714,
+      "L": 34.39644051, "L_rate": 3034.74612775,
+      "omega_bar": 14.72847983, "omega_bar_rate": 0.21252668,
+      "Omega": 100.47390909, "Omega_rate": 0.20469106,
+      "period_days": 4332.589
+    },
+    "physical": {
+      "equatorial_radius_km": 71492,
+      "mean_radius_km": 69911,
+      "mass_1e24_kg": 1898.13,
+      "bulk_density_g_cm3": 1.3262,
+      "geometric_albedo": 0.52,
+      "GM_km3_s2": 126712764.100000
+    },
+    "rotation": {
+      "period_hours": 9.9250,
+      "axial_tilt_deg": 3.13,
+      "retrograde": false,
+      "north_pole": { "alpha0": 268.056595, "delta0": 64.495303 }
+    },
+    "visual": {
+      "color": "#C88B3A"
+    },
+    "atmosphere": {
+      "hasAtmosphere": true,
+      "scaleHeight_km": 27,
+      "color": "#C88B3A"
+    },
+    "rings": null,
+    "outerCorrection": { "b": -0.00012452, "c": 0.06064060, "s": -0.35635438, "f": 38.35125000 },
+    "satellites": {
+      "io": {
+        "name": "이오",
+        "semi_major_axis_km": 421800,
+        "eccentricity": 0.004,
+        "inclination_deg": 0.0,
+        "orbital_period_days": 1.762732,
+        "radius_km": 1821.49,
+        "GM_km3_s2": 5959.91547
+      },
+      "europa": {
+        "name": "유로파",
+        "semi_major_axis_km": 671100,
+        "eccentricity": 0.009,
+        "inclination_deg": 0.5,
+        "orbital_period_days": 3.525463,
+        "radius_km": 1560.80,
+        "GM_km3_s2": 3202.71210
+      },
+      "ganymede": {
+        "name": "가니메데",
+        "semi_major_axis_km": 1070400,
+        "eccentricity": 0.001,
+        "inclination_deg": 0.2,
+        "orbital_period_days": 7.155588,
+        "radius_km": 2631.20,
+        "GM_km3_s2": 9887.83275
+      },
+      "callisto": {
+        "name": "칼리스토",
+        "semi_major_axis_km": 1882700,
+        "eccentricity": 0.007,
+        "inclination_deg": 0.3,
+        "orbital_period_days": 16.690440,
+        "radius_km": 2410.30,
+        "GM_km3_s2": 7179.28340
+      }
+    }
+  },
+  "saturn": {
+    "name": "토성",
+    "nameEn": "Saturn",
+    "orbital": {
+      "a": 9.53667594, "a_rate": -0.00125060,
+      "e": 0.05386179, "e_rate": -0.00050991,
+      "I": 2.48599187, "I_rate": 0.00193609,
+      "L": 49.95424423, "L_rate": 1222.49362201,
+      "omega_bar": 92.59887831, "omega_bar_rate": -0.41897216,
+      "Omega": 113.66242448, "Omega_rate": -0.28867794,
+      "period_days": 10759.22
+    },
+    "physical": {
+      "equatorial_radius_km": 60268,
+      "mean_radius_km": 58232,
+      "mass_1e24_kg": 568.32,
+      "bulk_density_g_cm3": 0.6871,
+      "geometric_albedo": 0.47,
+      "GM_km3_s2": 37940584.841800
+    },
+    "rotation": {
+      "period_hours": 10.656,
+      "axial_tilt_deg": 26.73,
+      "retrograde": false,
+      "north_pole": { "alpha0": 40.589, "delta0": 83.537 }
+    },
+    "visual": {
+      "color": "#E8D191"
+    },
+    "atmosphere": {
+      "hasAtmosphere": true,
+      "scaleHeight_km": 59.5,
+      "color": "#E8D191"
+    },
+    "rings": {
+      "innerRadius_km": 74510,
+      "outerRadius_km": 140220,
+      "color": "#C5B78F"
+    },
+    "outerCorrection": { "b": 0.00025899, "c": -0.13434469, "s": 0.87320147, "f": 38.35125000 },
+    "satellites": {
+      "enceladus": {
+        "name": "엔셀라두스",
+        "semi_major_axis_km": 238400,
+        "eccentricity": 0.005,
+        "inclination_deg": 0.0,
+        "orbital_period_days": 1.370218,
+        "radius_km": 252.10,
+        "GM_km3_s2": 7.21037
+      },
+      "titan": {
+        "name": "타이탄",
+        "semi_major_axis_km": 1221900,
+        "eccentricity": 0.029,
+        "inclination_deg": 0.3,
+        "orbital_period_days": 15.945448,
+        "radius_km": 2574.76,
+        "GM_km3_s2": 8978.13710
+      }
+    }
+  },
+  "uranus": {
+    "name": "천왕성",
+    "nameEn": "Uranus",
+    "orbital": {
+      "a": 19.18916464, "a_rate": -0.00196176,
+      "e": 0.04725744, "e_rate": -0.00004397,
+      "I": 0.77263783, "I_rate": -0.00242939,
+      "L": 313.23810451, "L_rate": 428.48202785,
+      "omega_bar": 170.95427630, "omega_bar_rate": 0.40805281,
+      "Omega": 74.01692503, "Omega_rate": 0.04240589,
+      "period_days": 30688.5
+    },
+    "physical": {
+      "equatorial_radius_km": 25559,
+      "mean_radius_km": 25362,
+      "mass_1e24_kg": 86.81,
+      "bulk_density_g_cm3": 1.270,
+      "geometric_albedo": 0.51,
+      "GM_km3_s2": 5794556.400000
+    },
+    "rotation": {
+      "period_hours": 17.24,
+      "axial_tilt_deg": 97.77,
+      "retrograde": true,
+      "north_pole": { "alpha0": 257.311, "delta0": -15.175 }
+    },
+    "visual": {
+      "color": "#ACE5EE"
+    },
+    "atmosphere": {
+      "hasAtmosphere": true,
+      "scaleHeight_km": 27.7,
+      "color": "#ACE5EE"
+    },
+    "rings": {
+      "innerRadius_km": 41837,
+      "outerRadius_km": 51149,
+      "color": "#666666"
+    },
+    "outerCorrection": { "b": 0.00058331, "c": -0.97731848, "s": 0.17689245, "f": 7.67025000 },
+    "satellites": {
+      "miranda": {
+        "name": "미란다",
+        "semi_major_axis_km": 129846,
+        "eccentricity": 0.001,
+        "inclination_deg": 4.4,
+        "orbital_period_days": 1.413479,
+        "radius_km": 235.8,
+        "GM_km3_s2": 4.3
+      },
+      "ariel": {
+        "name": "아리엘",
+        "semi_major_axis_km": 190929,
+        "eccentricity": 0.001,
+        "inclination_deg": 0.0,
+        "orbital_period_days": 2.520379,
+        "radius_km": 578.9,
+        "GM_km3_s2": 83.5
+      },
+      "umbriel": {
+        "name": "엄브리엘",
+        "semi_major_axis_km": 265986,
+        "eccentricity": 0.004,
+        "inclination_deg": 0.1,
+        "orbital_period_days": 4.144177,
+        "radius_km": 584.7,
+        "GM_km3_s2": 85.1
+      },
+      "titania": {
+        "name": "티타니아",
+        "semi_major_axis_km": 436298,
+        "eccentricity": 0.002,
+        "inclination_deg": 0.1,
+        "orbital_period_days": 8.705869,
+        "radius_km": 788.9,
+        "GM_km3_s2": 226.9
+      },
+      "oberon": {
+        "name": "오베론",
+        "semi_major_axis_km": 583511,
+        "eccentricity": 0.002,
+        "inclination_deg": 0.1,
+        "orbital_period_days": 13.463237,
+        "radius_km": 761.4,
+        "GM_km3_s2": 205.3
+      }
+    }
+  },
+  "neptune": {
+    "name": "해왕성",
+    "nameEn": "Neptune",
+    "orbital": {
+      "a": 30.06992276, "a_rate": 0.00026291,
+      "e": 0.00859048, "e_rate": 0.00005105,
+      "I": 1.77004347, "I_rate": 0.00035372,
+      "L": -55.12002969, "L_rate": 218.45945325,
+      "omega_bar": 44.96476227, "omega_bar_rate": -0.32241464,
+      "Omega": 131.78422574, "Omega_rate": -0.00508664,
+      "period_days": 60182.0
+    },
+    "physical": {
+      "equatorial_radius_km": 24764,
+      "mean_radius_km": 24622,
+      "mass_1e24_kg": 102.41,
+      "bulk_density_g_cm3": 1.638,
+      "geometric_albedo": 0.41,
+      "GM_km3_s2": 6836527.100580
+    },
+    "rotation": {
+      "period_hours": 16.11,
+      "axial_tilt_deg": 28.32,
+      "retrograde": false,
+      "north_pole": { "alpha0": 299.36, "delta0": 43.46 }
+    },
+    "visual": {
+      "color": "#4B70DD"
+    },
+    "atmosphere": {
+      "hasAtmosphere": true,
+      "scaleHeight_km": 19.7,
+      "color": "#4B70DD"
+    },
+    "rings": null,
+    "outerCorrection": { "b": -0.00041348, "c": 0.68346318, "s": -0.10162547, "f": 7.67025000 },
+    "satellites": {
+      "triton": {
+        "name": "트리톤",
+        "semi_major_axis_km": 354800,
+        "eccentricity": 0.000,
+        "inclination_deg": 157.3,
+        "orbital_period_days": 5.876994,
+        "radius_km": 1352.60,
+        "GM_km3_s2": 1428.49546
+      }
+    }
+  }
+}

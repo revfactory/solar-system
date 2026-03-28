@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="인터랙티브 3D 태양계 시뮬레이션" />
+  <title>태양계 시뮬레이션</title>
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="/src/styles/ui.css" />
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <div id="app">
+    <!-- 로딩 화면 -->
+    <div id="loading-screen">
+      <div id="loading-title">태양계</div>
+      <div id="loading-bar"><div id="loading-progress"></div></div>
+      <div id="loading-text">리소스 로딩 중...</div>
+    </div>
+
+    <!-- 좌측 행성 네비게이션 -->
+    <nav id="navigation" class="glass-panel"></nav>
+
+    <!-- 우측 정보 패널 -->
+    <div id="info-panel" class="glass-panel"></div>
+
+    <!-- 하단 타임라인 -->
+    <div id="timeline" class="glass-panel"></div>
+
+    <!-- 좌측 하단 컨트롤 힌트 -->
+    <div id="controls-hint">
+      마우스 드래그: 회전 · 스크롤: 줌 · 클릭: 행성 선택
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
