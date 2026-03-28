@@ -322,6 +322,24 @@
   text-align: center;
 }
 
+/* --- GitHub 링크 (우측 상단) --- */
+#github-link {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: var(--z-ui);
+  color: var(--text-dim);
+  opacity: 0.5;
+  transition: opacity var(--transition), color var(--transition-fast);
+  text-decoration: none;
+  line-height: 1;
+}
+
+#github-link:hover {
+  opacity: 1;
+  color: var(--text-bright);
+}
+
 /* --- 컨트롤 힌트 (좌측 하단) --- */
 #controls-hint {
   position: fixed;
