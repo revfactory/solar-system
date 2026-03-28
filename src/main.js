@@ -103,31 +103,59 @@ function selectPlanet(planetId) {
   if (infoPanel) infoPanel.show(planetId);
 }
 
-// --- Raycaster (행성 클릭) ---
+// --- Raycaster (행성 클릭 + 터치) ---
 const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
+const pointer = new THREE.Vector2();
 
-canvas.addEventListener('click', (event) => {
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-  raycaster.setFromCamera(mouse, camera);
+/** pointer 좌표를 NDC로 변환 */
+function updatePointer(clientX, clientY) {
+  pointer.x = (clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(clientY / window.innerHeight) * 2 + 1;
+}
 
+/** raycaster로 행성 선택 */
+function pickPlanet(clientX, clientY) {
+  updatePointer(clientX, clientY);
+  raycaster.setFromCamera(pointer, camera);
   const intersects = raycaster.intersectObjects(solarSystem.raycastTargets);
   if (intersects.length > 0) {
-    const hit = intersects[0].object;
-    const planetId = hit.userData?.planetId;
-    if (planetId) {
-      selectPlanet(planetId);
-    }
+    const planetId = intersects[0].object.userData?.planetId;
+    if (planetId) selectPlanet(planetId);
   }
-});
+}
 
-// 호버 커서 변경
-canvas.addEventListener('mousemove', (event) => {
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-  raycaster.setFromCamera(mouse, camera);
+// 마우스 클릭
+canvas.addEventListener('click', (e) => pickPlanet(e.clientX, e.clientY));
 
+// 터치: 탭(짧은 터치)과 드래그 구분
+let touchStart = null;
+const TAP_THRESHOLD = 15; // px
+const TAP_DURATION = 300; // ms
+
+canvas.addEventListener('touchstart', (e) => {
+  if (e.touches.length === 1) {
+    const t = e.touches[0];
+    touchStart = { x: t.clientX, y: t.clientY, time: performance.now() };
+  }
+}, { passive: true });
+
+canvas.addEventListener('touchend', (e) => {
+  if (!touchStart) return;
+  const t = e.changedTouches[0];
+  const dx = t.clientX - touchStart.x;
+  const dy = t.clientY - touchStart.y;
+  const dt = performance.now() - touchStart.time;
+  // 짧은 이동 + 짧은 시간 = 탭
+  if (Math.hypot(dx, dy) < TAP_THRESHOLD && dt < TAP_DURATION) {
+    pickPlanet(t.clientX, t.clientY);
+  }
+  touchStart = null;
+}, { passive: true });
+
+// 호버 커서 변경 (마우스 전용)
+canvas.addEventListener('mousemove', (e) => {
+  updatePointer(e.clientX, e.clientY);
+  raycaster.setFromCamera(pointer, camera);
   const intersects = raycaster.intersectObjects(solarSystem.raycastTargets);
   canvas.style.cursor = intersects.length > 0 ? 'pointer' : 'default';
 });

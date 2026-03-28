@@ -44,7 +44,7 @@
 }
 
 #loading-bar {
-  width: 240px;
+  width: min(240px, 60vw);
   height: 2px;
   background: var(--border);
   border-radius: 1px;
@@ -135,7 +135,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 360px;
+  width: min(360px, 85vw);
   height: 100%;
   z-index: var(--z-panel);
   padding: 0;
@@ -151,6 +151,7 @@
 }
 
 .info-header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,8 +173,8 @@
 }
 
 .info-close {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -230,6 +231,10 @@
   margin-bottom: 16px;
 }
 
+.info-section--spaced {
+  margin-top: 16px;
+}
+
 .info-section-title {
   font-size: 0.7rem;
   font-weight: 600;
@@ -262,6 +267,11 @@
   color: var(--text);
 }
 
+.info-mission {
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+}
+
 /* --- 타임라인 (하단) --- */
 #timeline {
   position: fixed;
@@ -273,12 +283,12 @@
   align-items: center;
   gap: 12px;
   padding: 10px 20px;
-  min-width: 480px;
+  max-width: calc(100% - 32px);
 }
 
 .timeline-btn {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -327,12 +337,13 @@
   position: fixed;
   top: 16px;
   right: 16px;
-  z-index: var(--z-ui);
+  z-index: calc(var(--z-panel) + 1);
   color: var(--text-dim);
   opacity: 0.5;
   transition: opacity var(--transition), color var(--transition-fast);
   text-decoration: none;
   line-height: 1;
+  padding: 8px;
 }
 
 #github-link:hover {
@@ -340,8 +351,9 @@
   color: var(--text-bright);
 }
 
-/* --- 컨트롤 힌트 (좌측 하단) --- */
-#controls-hint {
+/* --- 컨트롤 힌트 --- */
+#controls-hint,
+#controls-hint-touch {
   position: fixed;
   bottom: 16px;
   left: 16px;
@@ -352,8 +364,54 @@
   transition: opacity var(--transition);
 }
 
-#controls-hint:hover {
+#controls-hint:hover,
+#controls-hint-touch:hover {
   opacity: 1;
+}
+
+/* 기본: 데스크톱 힌트 보이고, 터치 힌트 숨김 */
+#controls-hint-touch {
+  display: none;
+}
+
+/* --- 터치 디바이스 감지 --- */
+@media (hover: none) and (pointer: coarse) {
+  /* 터치 디바이스에서 hover 확장 대신 항상 이름 표시 */
+  .nav-item-name {
+    opacity: 1;
+    max-width: 120px;
+  }
+
+  /* 터치 타겟 최소 44px */
+  .nav-item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .timeline-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .info-close {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .info-tab {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* 컨트롤 힌트 전환 */
+  #controls-hint {
+    display: none;
+  }
+
+  #controls-hint-touch {
+    display: block;
+  }
 }
 
 /* --- 반응형: 태블릿 --- */
@@ -363,11 +421,10 @@
   }
 
   #info-panel {
-    width: 320px;
+    width: min(320px, 85vw);
   }
 
   #timeline {
-    min-width: auto;
     padding: 8px 14px;
     gap: 8px;
   }
@@ -375,7 +432,7 @@
 
 /* --- 반응형: 모바일 --- */
 @media (max-width: 768px) {
-  /* 네비게이션 → 하단 탭 */
+  /* 네비게이션 → 하단 수평 바 */
   #navigation {
     position: fixed;
     top: auto;
@@ -393,13 +450,17 @@
     overflow-y: auto;
   }
 
+  /* 모바일에서 hover 확장 비활성 */
   #navigation:hover .nav-item-name {
     max-width: 0;
     opacity: 0;
   }
 
   .nav-item {
-    padding: 8px;
+    padding: 10px;
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
   }
 
   /* 정보 패널 → 하단 시트 */
@@ -418,7 +479,7 @@
     transform: translateY(0);
   }
 
-  /* 하단 시트 핸들 */
+  /* 하단 시트 드래그 핸들 */
   .info-header::before {
     content: '';
     position: absolute;
@@ -431,10 +492,14 @@
     background: var(--border-light);
   }
 
-  /* 타임라인 더 좁게 */
+  .info-header {
+    padding-top: 24px;
+    cursor: grab;
+  }
+
+  /* 타임라인 전폭 */
   #timeline {
     bottom: 8px;
-    min-width: auto;
     width: calc(100% - 16px);
     padding: 8px 12px;
     gap: 6px;
@@ -451,12 +516,19 @@
   }
 
   .timeline-btn {
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     font-size: 0.8rem;
   }
 
-  #controls-hint {
+  /* GitHub 링크 위치 조정 */
+  #github-link {
+    top: 12px;
+    right: 12px;
+  }
+
+  #controls-hint,
+  #controls-hint-touch {
     display: none;
   }
 }
@@ -472,7 +544,70 @@
   }
 
   .info-header {
-    padding: 16px 16px 10px;
+    padding: 24px 16px 10px;
+  }
+
+  .info-tabs {
+    padding: 0 16px;
+  }
+
+  .timeline-divider {
+    display: none;
+  }
+
+  .timeline-date {
+    font-size: 0.65rem;
+    min-width: 70px;
+  }
+
+  .timeline-speed {
+    font-size: 0.6rem;
+    min-width: 50px;
+  }
+}
+
+/* --- 가로 모드 모바일 --- */
+@media (max-height: 500px) and (orientation: landscape) {
+  #navigation {
+    position: fixed;
+    top: 50%;
+    bottom: auto;
+    left: 8px;
+    right: auto;
+    transform: translateY(-50%);
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-radius: var(--radius);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 4px;
+    gap: 0;
+  }
+
+  .nav-item {
+    padding: 6px 8px;
+    min-height: 32px;
+  }
+
+  #info-panel {
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    width: min(320px, 50vw);
+    height: 100%;
+    border-radius: 0;
+    transform: translateX(100%);
+  }
+
+  #info-panel.open {
+    transform: translateX(0);
+  }
+
+  #timeline {
+    bottom: 8px;
+    width: auto;
+    max-width: calc(100% - 80px);
   }
 }
 

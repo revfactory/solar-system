@@ -21,6 +21,7 @@ export class Navigation {
   _build() {
     if (!this.container) return;
     this.container.innerHTML = '';
+    this.container.setAttribute('aria-label', '행성 네비게이션');
 
     // 태양은 별도 (sun은 planets.json에 없을 수 있으므로 직접 추가)
     const sunItem = this._createItem('sun', '태양', 'Sun', '#FDB813');
@@ -41,6 +42,9 @@ export class Navigation {
     const el = document.createElement('div');
     el.className = 'nav-item';
     el.dataset.planet = id;
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', `${name} (${nameEn})`);
 
     const dot = document.createElement('span');
     dot.className = 'nav-item-dot';
@@ -53,9 +57,16 @@ export class Navigation {
     el.appendChild(dot);
     el.appendChild(label);
 
-    el.addEventListener('click', () => {
+    const handleSelect = () => {
       this.setActive(id);
       this.onSelect(id);
+    };
+    el.addEventListener('click', handleSelect);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleSelect();
+      }
     });
 
     this.items.set(id, { el, dot, color });

@@ -3,8 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="인터랙티브 3D 태양계 시뮬레이션" />
-  <title>태양계 시뮬레이션</title>
+
+  <!-- SEO -->
+  <title>태양계 시뮬레이션 — 인터랙티브 3D</title>
+  <meta name="description" content="Three.js 기반 인터랙티브 3D 태양계 시뮬레이션. 실시간 궤도 역학, 대기 산란 셰이더, 행성 탐색을 브라우저에서 체험하세요." />
+  <meta name="keywords" content="태양계, 시뮬레이션, 3D, Three.js, 행성, 궤도, WebGL, solar system" />
+  <meta name="author" content="revfactory" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="태양계 3D 시뮬레이션" />
+  <meta property="og:description" content="실시간 궤도 역학과 GLSL 셰이더로 구현한 인터랙티브 태양계. 브라우저에서 바로 체험하세요." />
+  <meta property="og:url" content="https://github.com/revfactory/space" />
+  <meta property="og:image" content="/textures/2k_sun.jpg" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="태양계 시뮬레이션" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="태양계 3D 시뮬레이션" />
+  <meta name="twitter:description" content="실시간 궤도 역학과 GLSL 셰이더로 구현한 인터랙티브 태양계." />
+  <meta name="twitter:image" content="/textures/2k_sun.jpg" />
+
+  <!-- PWA / Mobile -->
+  <meta name="theme-color" content="#0a0a1a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="태양계" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://github.com/revfactory/space" />
+
   <link rel="stylesheet" href="/src/styles/main.css" />
   <link rel="stylesheet" href="/src/styles/ui.css" />
 </head>
@@ -35,9 +67,12 @@
       </svg>
     </a>
 
-    <!-- 좌측 하단 컨트롤 힌트 -->
-    <div id="controls-hint">
+    <!-- 좌측 하단 컨트롤 힌트 (디바이스별 분기) -->
+    <div id="controls-hint" class="controls-hint-desktop">
       마우스 드래그: 회전 · 스크롤: 줌 · 클릭: 행성 선택
+    </div>
+    <div id="controls-hint-touch" class="controls-hint-touch">
+      드래그: 회전 · 핀치: 줌 · 탭: 행성 선택
     </div>
   </div>
 

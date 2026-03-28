@@ -101,6 +101,11 @@ html, body {
   background: var(--text-dim);
 }
 
+/* --- 터치 디바이스 기본 설정 --- */
+#canvas {
+  touch-action: none;
+}
+
 /* --- 유틸리티 --- */
 .hidden {
   display: none !important;

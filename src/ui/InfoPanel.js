@@ -57,11 +57,15 @@ export class InfoPanel {
 
     const closeBtn = this._el('button', 'info-close');
     closeBtn.textContent = '✕';
+    closeBtn.setAttribute('aria-label', '닫기');
     closeBtn.addEventListener('click', () => this.hide());
 
     header.appendChild(titleWrap);
     header.appendChild(closeBtn);
     this.container.appendChild(header);
+
+    // 모바일 스와이프 닫기
+    this._initSwipeDismiss(header);
 
     // 탭
     const tabs = this._el('div', 'info-tabs');
@@ -107,8 +111,7 @@ export class InfoPanel {
 
     // 간략 데이터
     if (data?.physical) {
-      const section = this._el('div', 'info-section');
-      section.style.marginTop = '16px';
+      const section = this._el('div', 'info-section info-section--spaced');
       const title = this._el('div', 'info-section-title');
       title.textContent = '주요 제원';
       section.appendChild(title);
@@ -199,13 +202,45 @@ export class InfoPanel {
     section.appendChild(title);
 
     for (const mission of ui.exploration) {
-      const p = this._el('p', 'info-description selectable');
+      const p = this._el('p', 'info-description info-mission selectable');
       p.textContent = mission;
-      p.style.marginBottom = '8px';
-      p.style.fontSize = '0.8rem';
       section.appendChild(p);
     }
     container.appendChild(section);
+  }
+
+  _initSwipeDismiss(header) {
+    let startY = 0;
+    let currentY = 0;
+    let dragging = false;
+
+    header.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+      dragging = true;
+      this.container.style.transition = 'none';
+    }, { passive: true });
+
+    header.addEventListener('touchmove', (e) => {
+      if (!dragging) return;
+      currentY = e.touches[0].clientY;
+      const dy = Math.max(0, currentY - startY);
+      this.container.style.transform = `translateY(${dy}px)`;
+    }, { passive: true });
+
+    header.addEventListener('touchend', () => {
+      if (!dragging) return;
+      dragging = false;
+      this.container.style.transition = '';
+      const dy = currentY - startY;
+      if (dy > 80) {
+        this.hide();
+      } else {
+        this.container.style.transform = '';
+        if (this.container.classList.contains('open')) {
+          this.container.style.transform = 'translateY(0)';
+        }
+      }
+    }, { passive: true });
   }
 
   _el(tag, className) {

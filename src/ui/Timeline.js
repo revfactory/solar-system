@@ -38,6 +38,7 @@ export class Timeline {
       btn.className = 'timeline-btn';
       btn.textContent = def.icon;
       btn.title = def.label;
+      btn.setAttribute('aria-label', def.label);
 
       btn.addEventListener('click', () => {
         if (def.isPause) {
